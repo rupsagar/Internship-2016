@@ -1,0 +1,38 @@
+clear all
+clc
+central;
+
+
+fid = figure;
+writerObj = VideoWriter('Test Run'); % Name it.
+writerObj.FrameRate = 60; % How many frames per second.
+open(writerObj);
+
+
+
+
+
+for i=1:1001
+a=cell2mat(circ_coord_cell(i,1));
+plot(a(:,1),a(:,2),'.');
+axis([-1300 0 -150 100]);
+
+
+frame = getframe(gcf); % 'gcf' can handle if you zoom in to take a movie.
+writeVideo(writerObj, frame);
+
+hold off
+pause(0.05)
+
+   
+end
+
+
+
+close(writerObj);
+        
+       
+        
+    
+    
+ 
